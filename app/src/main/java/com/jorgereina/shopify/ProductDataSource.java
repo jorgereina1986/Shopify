@@ -41,7 +41,7 @@ public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
     public void loadBefore(@NonNull final LoadParams<Integer> params, @NonNull final LoadCallback<Integer, Product> callback) {
         RetrofitClient.getInstance()
                 .getApi()
-                .getProducts(FIRST_PAGE, TOKEN)
+                .getProducts(params.key, TOKEN)
                 .enqueue(new Callback<ShopifyResponse>() {
                     @Override
                     public void onResponse(Call<ShopifyResponse> call, Response<ShopifyResponse> response) {
@@ -62,11 +62,13 @@ public class ProductDataSource extends PageKeyedDataSource<Integer, Product> {
     @Override
     public void loadAfter(@NonNull final LoadParams<Integer> params, @NonNull final LoadCallback<Integer, Product> callback) {
         RetrofitClient.getInstance()
-                .getApi().getProducts(FIRST_PAGE, TOKEN)
+                .getApi()
+                .getProducts(params.key, TOKEN)
                 .enqueue(new Callback<ShopifyResponse>() {
                     @Override
                     public void onResponse(Call<ShopifyResponse> call, Response<ShopifyResponse> response) {
                         if (response.body() != null) {
+                            Log.d("lagarto", "onResponse: " + params.key);
                             callback.onResult(response.body().getProductList(), params.key + 1);
                         }
                     }
