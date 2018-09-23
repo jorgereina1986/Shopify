@@ -1,4 +1,4 @@
-package com.jorgereina.shopify.models;
+package com.jorgereina.shopify.products.models;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,4 +1,4 @@
-package com.jorgereina.shopify.models;
+package com.jorgereina.shopify.products.models;
 
 public class Product {
 

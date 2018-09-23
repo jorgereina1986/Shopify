@@ -1,17 +1,16 @@
-package com.jorgereina.shopify;
+package com.jorgereina.shopify.products;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PageKeyedDataSource;
 import android.arch.paging.PagedList;
 
-import com.jorgereina.shopify.models.Product;
+import com.jorgereina.shopify.products.models.Product;
 
 public class ProductViewModel extends ViewModel {
 
-    LiveData productPagedList;
+    public LiveData productPagedList;
     LiveData<PageKeyedDataSource<Integer, Product>> liveDataSource;
 
     public ProductViewModel() {

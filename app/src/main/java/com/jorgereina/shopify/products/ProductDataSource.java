@@ -1,12 +1,12 @@
-package com.jorgereina.shopify;
+package com.jorgereina.shopify.products;
 
 import android.arch.paging.PageKeyedDataSource;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.jorgereina.shopify.models.Product;
-import com.jorgereina.shopify.models.ShopifyResponse;
-import com.jorgereina.shopify.network.RetrofitClient;
+import com.jorgereina.shopify.products.models.Product;
+import com.jorgereina.shopify.products.models.ShopifyResponse;
+import com.jorgereina.shopify.products.network.RetrofitClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;

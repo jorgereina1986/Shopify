@@ -1,4 +1,4 @@
-package com.jorgereina.shopify.network;
+package com.jorgereina.shopify.products.network;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

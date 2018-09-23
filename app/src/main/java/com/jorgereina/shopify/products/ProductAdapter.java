@@ -1,21 +1,20 @@
-package com.jorgereina.shopify;
+package com.jorgereina.shopify.products;
 
 import android.arch.paging.PagedListAdapter;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.jorgereina.shopify.models.Product;
+import com.jorgereina.shopify.R;
+import com.jorgereina.shopify.products.models.Product;
 
 public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.ProductViewHolder> {
 
-    ProductAdapter() {
+    public ProductAdapter() {
         super(DIFF_CALLBACK);
     }
 

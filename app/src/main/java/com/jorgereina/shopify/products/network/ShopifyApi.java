@@ -1,6 +1,6 @@
-package com.jorgereina.shopify.network;
+package com.jorgereina.shopify.products.network;
 
-import com.jorgereina.shopify.models.ShopifyResponse;
+import com.jorgereina.shopify.products.models.ShopifyResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
