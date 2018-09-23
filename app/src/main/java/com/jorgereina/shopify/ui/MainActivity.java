@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
         ProductViewModel productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
 
-        final ProductAdapter adapter = new ProductAdapter(this);
+        final ProductAdapter adapter = new ProductAdapter();
 
         productViewModel.productPagedList.observe(this, new Observer<PagedList<Product>>() {
             @Override
-            public void onChanged(@Nullable PagedList<Product> items) {
-                adapter.submitList(items);
+            public void onChanged(@Nullable PagedList<Product> products) {
+                adapter.submitList(products);
             }
         });
 

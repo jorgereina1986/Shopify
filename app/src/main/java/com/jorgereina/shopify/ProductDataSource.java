@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.jorgereina.shopify.models.Product;
 import com.jorgereina.shopify.models.ShopifyResponse;
+import com.jorgereina.shopify.network.RetrofitClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;

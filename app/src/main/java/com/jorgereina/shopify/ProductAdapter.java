@@ -15,11 +15,8 @@ import com.jorgereina.shopify.models.Product;
 
 public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.ProductViewHolder> {
 
-    private Context context;
-
-    ProductAdapter(Context context) {
+    ProductAdapter() {
         super(DIFF_CALLBACK);
-        this.context = context;
     }
 
     @NonNull

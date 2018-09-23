@@ -1,4 +1,4 @@
-package com.jorgereina.shopify;
+package com.jorgereina.shopify.network;
 
 import com.jorgereina.shopify.models.ShopifyResponse;
 
