@@ -1,37 +1,18 @@
 package com.jorgereina.shopify.products;
 
-import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-import android.arch.paging.LivePagedListBuilder;
-import android.arch.paging.PageKeyedDataSource;
-import android.arch.paging.PagedList;
-import android.os.ProxyFileDescriptorCallback;
 
+import com.jorgereina.shopify.products.models.DataRepository;
 import com.jorgereina.shopify.products.models.Product;
+
+import java.util.List;
 
 public class ProductViewModel extends ViewModel {
 
-    public LiveData productPagedList;
+    private DataRepository dataRepository = new DataRepository();
 
-    public LiveData tagPagedList;
-
-    LiveData<PageKeyedDataSource<Integer, Product>> liveDataSource;
-
-
-    public ProductViewModel() {
-        ProductDataSourceFactory productDataSourceFactory = new ProductDataSourceFactory();
-
-        liveDataSource = productDataSourceFactory.getProductLiveDataSource();
-
-
-        PagedList.Config pagedListConfig =
-                (new PagedList.Config.Builder())
-                        .setEnablePlaceholders(false)
-                        .setPageSize(50).build();
-
-        //Building the paged list
-        productPagedList = new LivePagedListBuilder(productDataSourceFactory, pagedListConfig)
-                .build();
-
+    public MutableLiveData<List<Product>> getMutableProductList() {
+        return dataRepository.getProductList();
     }
 }
