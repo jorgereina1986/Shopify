@@ -14,26 +14,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jorgereina.shopify.R;
-import com.jorgereina.shopify.products.ProductAdapter;
-import com.jorgereina.shopify.products.ProductViewModel;
+import com.jorgereina.shopify.products.NewProductViewModel;
+//import com.jorgereina.shopify.products.ProductAdapter;
+import com.jorgereina.shopify.products.ProductRVAdapter;
+//import com.jorgereina.shopify.products.ProductViewModel;
 import com.jorgereina.shopify.products.models.Product;
+
+import java.util.List;
 
 public class ProductsFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    public ProductsFragment() {
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_products, container, false);
     }
 
@@ -44,18 +39,17 @@ public class ProductsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.products_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
+        NewProductViewModel productViewModel = ViewModelProviders.of(this.getActivity()).get(NewProductViewModel.class);
 
-        ProductViewModel productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
+        final ProductRVAdapter adapter = new ProductRVAdapter();
 
-        final ProductAdapter adapter = new ProductAdapter();
 
-        productViewModel.productPagedList.observe(this, new Observer<PagedList<Product>>() {
+        productViewModel.getMutableProductList().observe(this, new Observer<List<Product>>() {
             @Override
-            public void onChanged(@Nullable PagedList<Product> products) {
+            public void onChanged(@Nullable List<Product> products) {
                 adapter.submitList(products);
             }
         });
-
         recyclerView.setAdapter(adapter);
     }
 }

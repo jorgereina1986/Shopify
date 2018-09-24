@@ -1,5 +1,7 @@
 package com.jorgereina.shopify.products.models;
 
+import java.util.List;
+
 public class Product {
 
     private long id;
